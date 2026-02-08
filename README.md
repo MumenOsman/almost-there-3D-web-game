@@ -125,5 +125,5 @@ contact at: https://www.linkedin.com/in/mumenosman/
 
 ---
 
-**Made with care for SuperCell AI Hackathon — 2026**
+**Made with 🥕 for SuperCell AI Hackathon — 2026**
 
