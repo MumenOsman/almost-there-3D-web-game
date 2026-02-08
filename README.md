@@ -1,18 +1,20 @@
 #  Almost There
 
-Hop into a cozy 3D parkour adventure! Play as a curious rabbit exploring a familiar, oversized world. Leap across platforms, discover hidden paths, and collect carrots at your own pace. Your unique playstyle is observed by an adaptive AI that gently shapes the challenges ahead, creating a personalized and comforting journey just for you.
+Hop into a cozy 3D parkour adventure! Play as a curious rabbit exploring a familiar, oversized world. Leap across platforms, discover hidden paths, and collect carrots at your own pace. This is a fully playable parkour experience with hand-crafted level design.
 
 ## Gameplay
 - Parkour-based movement (jump, dash, bounce)
 - Collect carrots to progress through cozy micro-missions
-- AI-adaptive level design that learns your skill and adjusts carrot placement
+- Hand-crafted level design with multiple routes to explore
 - No fail states, designed for flow and relaxation
 
-## AI Usage
-AI optimizes level design in real-time, not as enemies or procedural spam.
-- Learns your skill level through movement and completion patterns
-- Adjusts carrot placement and route difficulty dynamically
-- Ensures the right challenge level without compromising cozy vibes
+## 🤖 AI Design (Planned)
+AI is designed to optimize level design in real-time—this is a **planned system** being developed:
+- Would learn skill through movement and completion patterns
+- Would adjust carrot placement and route difficulty dynamically
+- **Current Build:** Core gameplay is fully playable without AI; AI system in development
+
+See [AI_DESIGN.md](Docs/AI_DESIGN.md) for details on planned features.
 
 ## Art Direction
 - Soft, toy-like proportions
@@ -30,8 +32,10 @@ AI-generated art was used for **concept and reference only**.
 - Tools: Google Antigravity
 - Target: Hackathon prototype
 
-## Demo
-👉 [Watch Gameplay Demo](DEMO_LINK_HERE) — Insert your YouTube/Drive link here
+## 🎮 Play Now
+👉 **[Play in Browser](web-build/V0.0.2/)** — WebGL build, no installation needed
+
+👉 **Watch Demo** — [Insert YouTube/Drive link here](DEMO_LINK_HERE)
 
 ## 📋 Submission Documents
 For detailed information, see:
@@ -46,14 +50,13 @@ For detailed information, see:
 - Built as Windows executable (.exe)
 - No external API keys required for base gameplay
 
-### AI Integration
-AI is integrated as a **level design system**, not a narrative mechanic:
-- Tracks player skill through jump accuracy, speed, and carrot collection efficiency
-- Adjusts carrot placement and route difficulty based on performance
-- Dynamically optimizes level flow to maintain engagement
-- Learns playstyle (cautious vs. risk-taking) and adapts accordingly
+### Current Build Status
+- ✅ **Gameplay:** Fully playable parkour mechanics
+- ✅ **Level Design:** Hand-crafted cozy kitchen environment
+- ✅ **Carrot Collection:** Complete core gameplay loop
+- 🚧 **AI System:** Planned but not yet implemented
 
-See [IMPLEMENTATION.md](IMPLEMENTATION.md) for full technical architecture.
+See [AI_DESIGN.md](Docs/AI_DESIGN.md) for details on planned adaptive difficulty system.
 
 ### Performance
 - Runs smoothly on modern hardware (60+ FPS)
@@ -87,21 +90,23 @@ For detailed setup, see [SETUP.md](SETUP.md).
 
 ## 📁 Project Structure
 ```
-almost-there-3D-web-game/
+Almost-There/
 ├── Assets/
 │   ├── Scenes/        # Game scenes
-│   ├── Scripts/       # C# gameplay & AI logic
+│   ├── Scripts/       # C# gameplay logic
 │   ├── Models/        # 3D models (rabbit, kitchen, carrots)
 │   ├── Animations/    # Character and UI animations
-│   ├── UI/            # UI prefabs (dialogue, HUD)
-│   └── Prompts/       # AI system prompts
+│   ├── UI/            # UI prefabs (HUD, menus)
+│   └── Prompts/       # AI system design documents
+├── web-build/
+│   └── V0.0.2/        # WebGL playable build (play in browser!)
 ├── Docs/              # Design documentation
-│   ├── AI_DESIGN.md
-│   ├── GAME_DESIGN.md
-│   ├── Story.md
-│   └── ART_SOURCES.md
-├── SETUP.md           # Installation & build guide
-├── IMPLEMENTATION.md  # AI technical deep-dive
+│   ├── AI_DESIGN.md   # Planned AI system
+│   ├── GAME_DESIGN.md # Core gameplay design
+│   ├── Story.md       # Game narrative
+│   └── ART_SOURCES.md # Art references
+├── SETUP.md           # Dev setup guide
+├── IMPLEMENTATION.md  # AI architecture (planned)
 └── README.md          # This file
 ```
 
