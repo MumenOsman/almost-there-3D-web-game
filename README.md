@@ -39,7 +39,7 @@ For detailed information, see:
 - **[IMPLEMENTATION.md](IMPLEMENTATION.md)** — AI technical architecture & design
 - **[DOCS/](Docs/)** — Game design, AI design, art sources, story
 
-## 🔧 Technical Details
+## Technical Details
 
 ### Unity Version
 - **Unity 6.2** (or later)
@@ -61,7 +61,7 @@ See [IMPLEMENTATION.md](IMPLEMENTATION.md) for full technical architecture.
 - Async AI response handling (no gameplay blocking)
 
 
-## 👥 Team & Credits
+## Team & Credits
 - **Development:** Mumen, Maab
 - **Art & Design:** Mumen, Maab
 - **Tools Used:**
@@ -70,7 +70,7 @@ See [IMPLEMENTATION.md](IMPLEMENTATION.md) for full technical architecture.
   - DALL-E (concept art & environmental inspiration)
 
 
-## 🚀 How to Get Started
+## How to Get Started
 
 **Option 1: Play the Executable**
 1. Download the `.exe` build from [RELEASE_LINK]
@@ -87,7 +87,7 @@ For detailed setup, see [SETUP.md](SETUP.md).
 
 ## 📁 Project Structure
 ```
-SuperCellHack2/
+almost-there-3D-web-game/
 ├── Assets/
 │   ├── Scenes/        # Game scenes
 │   ├── Scripts/       # C# gameplay & AI logic
@@ -105,8 +105,9 @@ SuperCellHack2/
 └── README.md          # This file
 ```
 
-## 💌 Contact & Feedback
+## Contact & Feedback
 We'd love to hear your thoughts! Feedback on the AI's tone, gameplay flow, or cozy aesthetics is welcome.
+contact at: https://www.linkedin.com/in/mumenosman/
 
 ---
 
