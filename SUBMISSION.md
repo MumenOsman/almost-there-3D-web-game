@@ -174,17 +174,17 @@ us to build a fully playable game with a well-designed AI system for future deve
 ## 📤 Final Submission Steps
 
 ### 48 Hours Before Deadline
-- [ ] One final full playthrough of the game
-- [ ] README.md proofread
-- [ ] All documentation reviewed
+- [x] One final full playthrough of the game
+- [x] README.md proofread
+- [x] All documentation reviewed
 - [ ] GitHub repo is clean and complete
-- [ ] WebGL build tested in multiple browsers
+- [x] WebGL build tested in multiple browsers
 
 ### 24 Hours Before Deadline
-- [ ] Submit early if possible
-- [ ] Confirm submission receipt
-- [ ] Keep backup of all files locally
-- [ ] Double-check all links work
+- [x] Submit early if possible
+- [x] Confirm submission receipt
+- [x] Keep backup of all files locally
+- [x] Double-check all links work
 
 ### Day of Deadline
 - [ ] Verify submission was received
@@ -203,32 +203,3 @@ You're ready to submit when:
 - Team members are credited
 - Submitted before deadline
 
-## Hackathon Best Practices
-
-### What Judges Look For
-1. **Completeness** - Is the project finished and playable?
-2. **Code Quality** - Is it well-written and organized?
-3. **Design Philosophy** - Does the AI add meaningful value?
-4. **Honesty** - Clear about capabilities and limitations
-5. **User Experience** - Is it fun/engaging to try?
-
-### Dos
-- Be proud of what you built
-- Explain your design choices clearly
-- Show off the playable version
-- Be honest about what's planned vs. complete
-- Make it easy for judges to try your game
-
-### Don'ts
-- Overclaim AI capabilities
-- Submit incomplete features as done
-- Make judges hunt for how to play
-- Use technical jargon without explanation
-- Submit at the very last minute
-
----
-
-**Good luck with your submission!** 🚀
-
-You've built a complete, playable game with thoughtful AI design.
-That's something to be proud of!
