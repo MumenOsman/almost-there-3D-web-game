@@ -23,7 +23,6 @@ AI-generated art was used for **concept and reference only**.
 
 ## 🛠 Tech Stack
 - Unity (3D)
-- Jabali Game Editor
 - AI: Claude / DALL·E (concept & dialogue)
 - Target: Hackathon prototype
 
