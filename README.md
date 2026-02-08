@@ -1,20 +1,20 @@
-# 🐇 Almost There
+#  Almost There
 
 Hop into a cozy 3D parkour adventure! Play as a curious rabbit exploring a familiar, oversized world. Leap across platforms, discover hidden paths, and collect carrots at your own pace. Your unique playstyle is observed by an adaptive AI that gently shapes the challenges ahead, creating a personalized and comforting journey just for you.
 
-## 🎮 Gameplay
+## Gameplay
 - Parkour-based movement (jump, dash, bounce)
 - Collect carrots to progress through cozy micro-missions
 - AI-adaptive level design that learns your skill and adjusts carrot placement
 - No fail states, designed for flow and relaxation
 
-## 🤖 AI Usage
+## AI Usage
 AI optimizes level design in real-time, not as enemies or procedural spam.
 - Learns your skill level through movement and completion patterns
 - Adjusts carrot placement and route difficulty dynamically
 - Ensures the right challenge level without compromising cozy vibes
 
-## 🎨 Art Direction
+## Art Direction
 - Soft, toy-like proportions
 - Pastel colors and warm lighting
 
@@ -27,10 +27,10 @@ AI-generated art was used for **concept and reference only**.
 ## 🛠 Tech Stack
 - Unity (3D)
 - AI: Gemini, Claude and DALL·E for game art
-- Tools: AntiGravity
+- Tools: Google Antigravity
 - Target: Hackathon prototype
 
-## � Demo
+## Demo
 👉 [Watch Gameplay Demo](DEMO_LINK_HERE) — Insert your YouTube/Drive link here
 
 ## 📋 Submission Documents
