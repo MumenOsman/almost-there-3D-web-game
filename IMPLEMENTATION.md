@@ -3,33 +3,35 @@
 ## Architecture Overview
 
 ```
-Player Input → Game Logic → AI Service → Response → UI Update
+Player Input → Skill Analysis → Difficulty Calculation → Level Adjustment → Gameplay
 ```
 
 ### Flow Diagram
-1. **Player Actions** (jump, move, collect) → Game Event System
-2. **Game State** (position, carrot count, time idle) → AI Input Processing
-3. **AI Service** (Claude API or local response system) → Generate dialogue
-4. **Dialogue System** → Display pocket watch reaction
-5. **Loop continues** based on player behavior
+1. **Player Actions** (jump, move, collect) → Movement Event System
+2. **Skill Metrics** (accuracy, speed, efficiency) → AI Skill Analyzer
+3. **Difficulty Score** (0-100) → Level Adaptation System
+4. **Level Adjustment** (carrot placement, route difficulty) → Real-time Updates
+5. **Loop continues** as player improves
 
 ## Core Components
 
-### 1. AI Companion System
-**File:** `Assets/Scripts/AI/CompanionAI.cs` (example structure)
+### 1. Skill Analyzer System
+**File:** `Assets/Scripts/AI/SkillAnalyzer.cs` (example structure)
 
 ```csharp
-public class CompanionAI : MonoBehaviour
+public class SkillAnalyzer : MonoBehaviour
 {
-    // Tracks player behavior
-    private PlayerBehavior playerStats;
+    // Tracks real-time player metrics
+    private PlayerMetrics currentMetrics;
     
-    // Sends input to AI service
-    public async Task<string> GetCompanionResponse(GameState state)
+    // Calculates skill score (0-100)
+    public float CalculateSkillScore(PlayerData data)
     {
-        var prompt = BuildPrompt(state);
-        var response = await AIService.GetResponse(prompt);
-        return response;
+        float jumpAccuracy = CalculateJumpAccuracy(data);
+        float collectionSpeed = CalculateCollectionEfficiency(data);
+        float routeEfficiency = CalculatePathOptimality(data);
+        
+        return (jumpAccuracy * 0.4f + collectionSpeed * 0.3f + routeEfficiency * 0.3f);
     }
 }
 ```
@@ -37,142 +39,160 @@ public class CompanionAI : MonoBehaviour
 ### 2. Input Generation
 The AI ingests real-time player data:
 
-| Input | Source | Example |
-|-------|--------|---------|
-| **Movement Pattern** | Input tracking | "Player keeps falling off the same platform" |
-| **Carrot Collection Rate** | Game logic | "Collected 5 carrots in 2 minutes" |
-| **Idle Time** | Frame counter | "Standing still for 30 seconds" |
-| **Risk-Taking** | Physics detection | "Attempted a difficult jump 3 times" |
-| **Hesitation** | Movement speed analysis | "Moving slowly, taking careful steps" |
+| Input | Source | Calculation |
+|-------|--------|-------------|
+| **Jump Accuracy** | Physics collision data | % of successful landing vs. falls |
+| **Collection Speed** | Carrot pickup timing | Carrots collected per minute |
+| **Route Efficiency** | Movement tracking | Direct path optimization percentage |
+| **Exploration Rate** | Position history | % of level explored vs. optimal |
+| **Retry Patterns** | Event counters | How many attempts per challenging section |
 
-### 3. AI Response Generation
-The system creates contextual dialogue:
+### 3. Difficulty Calculation
+The system calculates target difficulty based on skill:
 
-**System Prompt** (from `Assets/Prompts/AI_COMPANION_PROMPT.txt`):
+**Skill Score → Difficulty Adjustment**
 ```
-You are a gentle, supportive pocket watch companion...
-```
-
-**Input Prompt Example:**
-```
-The player just fell from the same platform for the 3rd time.
-They're still trying. How do you gently encourage them?
-Keep it to one short sentence.
+Skill 0-20:   Make carrot positions easier, open safe routes
+Skill 20-50:  Moderate layout, mix of accessible & challenging paths
+Skill 50-80:  Challenging positions, require precise jumps
+Skill 80-100: Extreme difficulty, optimized routes only
 ```
 
-**Output Example:**
-```
-"You've got this! That jump takes a moment to master. 💛"
-```
-
-### 4. Dialogue System
-**File:** `Assets/Scripts/UI/DialogueManager.cs` (example structure)
+### 4. Level Adaptation System
+**File:** `Assets/Scripts/AI/LevelAdapter.cs` (example structure)
 
 ```csharp
-public class DialogueManager : MonoBehaviour
+public class LevelAdapter : MonoBehaviour
 {
-    private TextMeshProUGUI dialogueBox;
-    
-    public void DisplayResponse(string text)
+    // Dynamically adjusts carrot positions
+    public void AdjustCarrotPlacement(float difficultyScore)
     {
-        StartCoroutine(TypeWriter(text, duration: 3f));
-        // Auto-hide after 3 seconds
+        foreach (var carrot in carrots)
+        {
+            Vector3 newPosition = CalculateOptimalPosition(carrot, difficultyScore);
+            carrot.MoveTo(newPosition, smoothly: true);
+        }
+    }
+    
+    // Opens/closes route paths based on skill
+    public void AdjustRouteAvailability(float difficultyScore)
+    {
+        easyRoute.SetActive(difficultyScore < 50);
+        hardRoute.SetActive(difficultyScore > 40);
     }
 }
 ```
 
-**Output:** Text appears above/near the pocket watch UI element
+**Output:** Level state updates in real-time, invisible to player
 
 ### 5. Integration Points
 
 | System | Integration | Notes |
 |--------|-----------|-------|
-| **Player Movement** | OnJump, OnLand events | Detects patterns |
-| **Carrot Collection** | Inventory system | Tracks progress |
-| **Level Progress** | Checkpoint system | Celebrates milestones |
-| **Camera** | Visual system | Pocket watch follows player |
+| **Player Movement** | OnJump, OnLand events | Tracks accuracy |
+| **Carrot Collection** | Inventory system | Measures collection speed |
+| **Route System** | Pathfinding | Analyzes route optimization |
+| **Physics** | Rigidbody callbacks | Detects landing quality |
+| **Level Manager** | Scene controller | Applies position adjustments |
 
 ## AI Decision Making
 
-### What Triggers a Response?
+### Skill Assessment Frequency
+- **Real-time:** Every frame (movement tracking)
+- **Periodic:** Every 30 seconds (skill recalculation)
+- **Event-Based:** On carrot collection, route completion
 
-**Every 5-10 seconds OR when:**
-- Player completes a carrot collection
-- Player falls (without losing)
-- Player hesitates for >15 seconds
-- Player successfully completes a difficult jump
-- First time entering a new area
+### Difficulty Adjustment
+- **Gradual:** Changes smoothly over 5-10 seconds
+- **Invisible:** No UI notifications or pop-ups
+- **Reversible:** Can shift difficulty up or down based on performance
+- **Fair:** Never creates impossible situations
 
-### Response Selection
-- **Encouragement** (40%) - "You're doing great!"
-- **Observation** (30%) - "I see you're trying that again"
-- **Celebration** (20%) - "Nice collection! 🥕"
-- **Gentle nudge** (10%) - "The next carrot is just ahead"
+### Example Progression
+```
+Game Start (Skill 0):
+- Carrots placed at ground level, close together
+- All routes open
+- Wide landing platforms
 
-## No Fail States
-AI **never** delivers:
-- ❌ Criticism or judgment
-- ❌ Pressure or urgency ("Hurry!")
-- ❌ Repetitive comments about failures
-- ❌ Generic/spam responses
+Player After 2 min (Skill 35):
+- Carrots on low shelves, slightly spread
+- 1 advanced route gated
+- Platform widths reduce slightly
 
-## API Usage (Demo Flow)
+Player After 5 min (Skill 70):
+- Carrots on high, narrow ledges
+- Only aerial routes available
+- Precision required
 
-### During Development
-- Uses Claude API (in demo/showcase mode)
-- Cost: ~$0.01 per 10 responses (minimal)
-
-### In Hackathon Build
-- Responses pre-generated and cached
-- OR uses lightweight local response system
-- **Zero API calls** needed during normal play
+Player After 10 min (Skill 90):
+- Carrots in optimal/challenging positions
+- Only efficient routes work
+- Maximum engagement
+```
 
 ## Performance Considerations
 
 | Metric | Target | Status |
 |--------|--------|--------|
-| Response latency | <500ms | ✅ Cached responses |
-| Memory overhead | <50MB | ✅ Small prompt + response |
-| CPU impact | <2% | ✅ Async processing |
+| Skill calculation | <16ms | ✅ Runs in background |
+| Level adaptation | <50ms | ✅ Smooth transitions |
+| Memory overhead | <15MB | ✅ Skill data only |
+| CPU impact | <3% | ✅ Minimal background processing |
 
-## Safety & Ethics
+## Safety & Design Ethics
+
+### Fair Difficulty Scaling
+- ✅ Never impossible to win
+- ✅ Scales based on measurable metrics
+- ✅ No artificial rubber-banding
+- ✅ Respects cozy game philosophy
 
 ### Data Handling
-- ✅ No player data storage
-- ✅ No behavioral tracking
-- ✅ No profiling
-- ✅ Session-only memory
+- ✅ No player data storage beyond session
+- ✅ No profiling or tracking after play
+- ✅ Skill scores are session-only
+- ✅ No external API calls (all local)
 
-### Bias Mitigation
-- Responses tested for neutrality
-- No gendered language
-- Accessible language (not overly complex)
-
-### Content Moderation
-- AI prompt includes safety guidelines
-- Responses filtered before display
-- Fallback strings for any edge cases
+### Playstyle Respect
+- ✅ Rewards cautious exploration
+- ✅ Rewards fast, aggressive play
+- ✅ Adapts to player preference
+- ✅ No "right way" to play
 
 ## Testing the AI
 
 ### Manual Testing Checklist
-- [ ] AI responds when player jumps
-- [ ] AI adapts to different playstyles
-- [ ] Dialogue appears and disappears correctly
-- [ ] No profanity or negative language
-- [ ] Responses feel natural in context
-- [ ] Performance remains smooth
+- [ ] Skill score increases as player improves
+- [ ] Difficulty adapts smoothly over time
+- [ ] Easy players see accessible carrots
+- [ ] Advanced players see challenging positions
+- [ ] No sudden difficulty spikes
+- [ ] Performance remains smooth across all skill levels
+- [ ] Skill system doesn't break cozy aesthetic
 
-### Example Scenarios
-1. **Fast player**: "You're moving with confidence!"
-2. **Struggling player**: "No rush, this one's tricky!"
-3. **Extended pause**: "Whenever you're ready! 💙"
-4. **Success milestone**: "You've collected 10 carrots! Amazing! 🎉"
+### Example Test Scenarios
+1. **Unskilled Player:** 
+   - Collects carrots slowly, falls frequently
+   - System responds: Makes carrots more accessible
+   
+2. **Skilled Player:**
+   - Quick collection, high accuracy
+   - System responds: Places carrots in harder positions
+   
+3. **Cautious Exploration:**
+   - Player moves slowly, explores routes
+   - System responds: Opens multiple paths, rewards exploration
+   
+4. **Speed Run Attempt:**
+   - Player goes for fastest collection
+   - System responds: Optimizes routing for speed
 
 ## Future Enhancements
 
-- [ ] Dynamic difficulty conversation
-- [ ] Player name integration
-- [ ] Mood/tone customization
-- [ ] Multi-language support
-- [ ] Learning from player preferences
+- [ ] Playstyle classification (casual vs. competitive)
+- [ ] Multi-session progression tracking
+- [ ] Procedural minor variations per playthrough
+- [ ] Contextual hints based on struggling areas
+- [ ] Difficulty presets (relaxed, normal, challenging)
+- [ ] Analytics dashboard for developers

@@ -61,14 +61,14 @@ Complete this checklist before submitting your project to the hackathon.
   - [ ] Location: `Assets/Prompts/AI_COMPANION_PROMPT.txt` ✓
 
 - [ ] **AI Integration Explained**
-  - [ ] How AI reads player behavior ✓ (in IMPLEMENTATION.md)
-  - [ ] Examples of AI outputs ✓ (in IMPLEMENTATION.md)
-  - [ ] Response latency & performance ✓ (in IMPLEMENTATION.md)
+  - [ ] How AI analyzes player skill ✓ (in IMPLEMENTATION.md)
+  - [ ] Examples of difficulty adjustments ✓ (in IMPLEMENTATION.md)
+  - [ ] Performance metrics & optimization ✓ (in IMPLEMENTATION.md)
 
 - [ ] **Responsible AI Usage**
-  - [ ] [ ] No harmful or biased outputs
-  - [ ] [ ] No data collection without consent
-  - [ ] [ ] Cost transparency (if using APIs)
+  - [ ] No unfair difficulty scaling
+  - [ ] No data collection without consent
+  - [ ] Offline processing (no API calls during gameplay)
   - [ ] [ ] Clear attribution of AI tools used
 
 - [ ] **Innovation Statement**
@@ -81,10 +81,10 @@ Complete this checklist before submitting your project to the hackathon.
 Before uploading, fill in:
 
 ```
-Project Name: Almost On Time
-Team Members: [Your Name(s)]
+Project Name: Almost Time
+Team Members: Mumen, Maab
 University/Organization: [Your School/Company]
-AI Tools Used: Claude, DALL-E (concept only)
+AI Tools Used: Claude (level design optimization)
 Tech Stack: Unity 6.2, C#
 Repository: [GitHub link]
 Demo Video: [YouTube/Drive link]
@@ -103,11 +103,13 @@ Submission Date: February 8, 2026
 - [ ] No graphical glitches
 
 ### AI Testing
-- [ ] Dialogue appears on screen
-- [ ] AI responds to player behavior
-- [ ] Responses feel contextual (not random)
-- [ ] No profanity or inappropriate content
-- [ ] No lag when AI processes responses
+- [ ] Skill score increases as player improves
+- [ ] Difficulty adapts smoothly over 5-10 seconds
+- [ ] Easy players see accessible carrots
+- [ ] Advanced players see challenging positions
+- [ ] No sudden difficulty spikes
+- [ ] Cozy aesthetic maintained throughout
+- [ ] No lag when AI adjusts level
 
 ### Documentation Testing
 - [ ] All links in README.md work
