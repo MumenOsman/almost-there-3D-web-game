@@ -1,35 +1,37 @@
-# AI Design - Adaptive Level System
+# AI Design - Adaptive Level System (Planned Concept)
 
 ## Role of AI
-AI acts as an **invisible difficulty balancer** that learns player skill and adjusts level design dynamically.
+The AI is designed as an **invisible, supportive difficulty balancer**.  
+It would learn player skill and adjust the environment dynamically to keep the experience engaging and cozy.
 
 ## Why AI?
-- Personalizes challenge level without obvious difficulty settings
-- Learns playstyle (cautious vs. risk-taking, fast vs. exploratory)
-- Ensures engagement by avoiding boredom and frustration
-- Demonstrates intelligent game design vs. brute-force difficulty
+- Personalizes challenge without showing difficulty sliders
+- Adapts to playstyle (cautious vs. risk-taking, fast vs. exploratory)
+- Keeps gameplay engaging while respecting the cozy game feel
+- Demonstrates intelligent, player-centered game design
 
-## AI Inputs
+## Planned AI Inputs
 - Jump accuracy and landing precision
-- Collection speed (how quickly player collects carrots)
-- Route efficiency (direct path vs. exploration)
-- Hesitation duration (time spent pausing before action)
-- Retry patterns (how many times player attempts a section)
+- Collection speed (how quickly carrots are collected)
+- Route efficiency (direct path vs. exploratory)
+- Pausing / hesitation behavior
+- Retry frequency on sections
 
-## AI Decision Making
-Based on inputs, AI adjusts:
-- **Carrot Placement** - More accessible positions vs. challenging ones
-- **Route Difficulty** - Open easier paths or gate harder ones
-- **Spacing** - Spread carrots further apart for skilled players
-- **Timing** - Adjust platform positions to match player skill
+## Planned AI Decision Making
+- Carrot Placement: easier for beginners, more challenging for skilled players
+- Route Difficulty: open or gate paths according to skill
+- Spacing: adjust distances between platforms or objects
+- Timing: subtle adjustments in moving objects or platform layout
 
-## AI Outputs
+## Planned AI Outputs
 - Modified level state (carrot positions, available routes)
-- Difficulty score tracking player progression
-- No dialogue or UI notifications (invisible to player)
+- Difficulty progression tracking
+- Invisible adjustments — no UI or dialogue notifications
 
-## Safety & Design
-- No frustrating difficulty spikes
+## Safety & Design Philosophy
+- Gradual, organic difficulty adaptation
 - Cannot make the game unwinnable
-- Adjustments are gradual and organic
-- Respects cozy game feel above all
+- Maintains fun, flow, and cozy aesthetic at all times
+
+> ⚠ Disclaimer: This AI system was **planned but not implemented** for the hackathon due to time constraints. The core gameplay loop (parkour + carrot collecting) is fully playable without it.
+
