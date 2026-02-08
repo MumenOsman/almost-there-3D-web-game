@@ -1,4 +1,5 @@
-#  Almost There https://mumenosman.itch.io/almost-there
+## Play the game:  
+https://mumenosman.itch.io/almost-there
 
 ## Full Unity Project: 
 https://drive.google.com/file/d/1HQCTNB2GWKXpfRy1CcOGG1rkYHbHvdOO/view?usp=sharing
