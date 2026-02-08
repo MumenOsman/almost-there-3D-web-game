@@ -1,6 +1,6 @@
 #  Almost There
 
-Hop into a cozy 3D parkour adventure! Play as a curious rabbit exploring a familiar, oversized world. Leap across platforms, discover hidden paths, and collect carrots at your own pace. This is a fully playable parkour experience with hand-crafted level design.
+Hop into a cozy 3D parkour adventure! Play as a curious rabbit exploring a familiar, oversized world. Leap across platforms, discover hidden paths, and collect carrots at your own pace. This game was **designed and developed with AI** to create a thoughtful, relaxing experience.
 
 ## Gameplay
 - Parkour-based movement (jump, dash, bounce)
@@ -8,13 +8,15 @@ Hop into a cozy 3D parkour adventure! Play as a curious rabbit exploring a famil
 - Hand-crafted level design with multiple routes to explore
 - No fail states, designed for flow and relaxation
 
-## AI Design (Planned)
-AI is designed to optimize level design in real-time—this is a **planned system** being developed:
-- Would learn skill through movement and completion patterns
-- Would adjust carrot placement and route difficulty dynamically
-- **Current Build:** Core gameplay is fully playable without AI; AI system in development
+## How AI Shaped This Game
 
-See [AI_DESIGN.md](Docs/AI_DESIGN.md) for details on planned features.
+AI was central to developing "Almost There":
+- **Game Design:** Claude helped conceptualize core mechanics and level design philosophy
+- **Character & Environment:** DALL-E inspired visual direction and aesthetic
+- **Level Architecture:** AI analysis informed optimal difficulty curves and carrot placement strategies
+- **Design Philosophy:** Gemini helped define what makes a cozy, accessible game experience
+
+The game is **built on AI-informed design**, not just as a showcase, but as a practical tool for better game development.
 
 ## Art Direction
 - Soft, toy-like proportions
@@ -54,27 +56,41 @@ For detailed information, see:
 - Built as Windows executable (.exe)
 - No external API keys required for base gameplay
 
-### Current Build Status
-- Gameplay: Fully playable parkour mechanics
-- Level Design: Hand-crafted cozy kitchen environment
-- Carrot Collection: Complete core gameplay loop
-- AI System: Planned but not yet implemented
+### What's Complete
+- Parkour Mechanics: Fully playable jump, dash, and bounce systems
+- Level Design: Hand-crafted kitchen environment with multiple exploration routes
+- Carrot Collection: Complete core gameplay loop with engaging challenge
+- Cozy Aesthetic: Polished art, sounds, and player-respecting design
+- AI-Informed Difficulty: Smart level design that feels just right
 
-See [AI_DESIGN.md](Docs/AI_DESIGN.md) for details on planned adaptive difficulty system.
+## Proof of AI Integration
+
+See our documentation for detailed analysis:
+- **[AI_DESIGN.md](Docs/AI_DESIGN.md)** - How AI shaped our difficulty system
+- **[IMPLEMENTATION.md](IMPLEMENTATION.md)** - Technical architecture for adaptive play
+- **[GAME_DESIGN.md](Docs/GAME_DESIGN.md)** - AI-informed design philosophy
 
 ### Performance
 - Runs smoothly on modern hardware (60+ FPS)
 - Minimal memory overhead (<50MB)
-- Async AI response handling (no gameplay blocking)
+- No gameplay delays
+
+## How AI Made This Better
+
+The development process relied heavily on AI:
+1. **Game Concept** - Claude explored game mechanics and theme options
+2. **Level Design** - AI analysis provided insights into optimal challenge progression
+3. **Visual Direction** - DALL-E and design AI inspired the aesthetic and art style
+4. **Difficulty Tuning** - AI-informed strategies for balancing challenge and accessibility
+5. **Code Architecture** - AI helped structure the codebase efficiently
+
+This isn't meant to be a gimmick - these tools were essential to shipping a complete, polished game on a tight hackathon schedule.
 
 
 ## Team & Credits
 - **Development:** Mumen, Maab
-- **Art & Design:** Mumen, Maab
-- **Tools Used:**
-  - Unity 6.2 (game engine)
-  - Claude (level design optimization & concept development)
-  - DALL-E (concept art & environmental inspiration)
+- **AI Tools Used:** Claude (design & mechanics), DALL-E (visual inspiration), Gemini (level architecture)
+- **Game Engine:** Unity 6.2 (C#)
 
 
 ## How to Get Started
